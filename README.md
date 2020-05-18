@@ -1,3 +1,5 @@
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/jsillitoe/react-currency-input) 
+
 # react-currency-input
 
 An ES2015 react component for currency. Supports custom decimal and thousand separators as well as precision.
