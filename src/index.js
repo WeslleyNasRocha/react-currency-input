@@ -52,6 +52,7 @@ class CurrencyInput extends Component {
         delete customProps.suffix;
         delete customProps.selectAllOnFocus;
         delete customProps.autoFocus;
+        delete customProps.maximumValue;
 
         let initialValue = props.value;
         if (initialValue === null) {
@@ -219,6 +220,10 @@ class CurrencyInput extends Component {
 
         event.persist();  // fixes issue #23
 
+        if (this.props.maximumValue && value > this.props.maximumValue) {
+            return;
+        }
+
         this.setState({ maskedValue, value }, () => {
             this.props.onChange(maskedValue, value, event);
             this.props.onChangeEvent(event, maskedValue, value);
@@ -287,7 +292,8 @@ CurrencyInput.propTypes = {
     allowEmpty: PropTypes.bool,
     prefix: PropTypes.string,
     suffix: PropTypes.string,
-    selectAllOnFocus: PropTypes.bool
+    selectAllOnFocus: PropTypes.bool,
+    maximumValue: PropTypes.number
 };
 
 
